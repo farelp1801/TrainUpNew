@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainUp</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="PIC/favicon.png">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <div id="navbar-container"></div>
+
+    <!-- Sidebar Dashboard -->
+    <div id="sidebarDashboard" class="sidebar">
+        <span class="close-sidebar" onclick="toggleSidebar()">&times;</span>
+        <h3>Dashboard</h3>
+        <form id="dashboardForm" onsubmit="updateDashboard(event)">
+            <div class="form-group">
+                <label for="dashboardFullName">Nama Lengkap</label>
+                <input type="text" id="dashboardFullName" name="fullName" readonly>
+            </div>
+            <div class="form-group">
+                <label for="dashboardUsername">Username</label>
+                <input type="text" id="dashboardUsername" name="username" readonly>
+            </div>
+            <div class="form-group">
+                <label for="dashboardGender">Jenis Kelamin</label>
+                <input type="text" id="dashboardGender" name="gender" readonly>
+            </div>
+            <div class="form-group">
+                <label for="dashboardEmail">Email</label>
+                <input type="email" id="dashboardEmail" name="email" readonly>
+            </div>
+            <div class="form-group">
+                <label for="dashboardContact">Kontak</label>
+                <input type="text" id="dashboardContact" name="contact" required>
+            </div>
+            <div class="form-group">
+                <label for="dashboardProgramGoals">Program Capaian</label>
+                <input type="text" id="dashboardProgramGoals" name="programGoals" required>
+            </div>
+            <div class="form-group">
+                <label for="dashboardMedicalHistory">Riwayat Penyakit</label>
+                <input type="text" id="dashboardMedicalHistory" name="medicalHistory">
+            </div>
+            <div id="trainerSection" class="form-group">
+                <label for="trainerSelect">Pilih Trainer</label>
+                <select id="trainerSelect" name="trainer_id">
+                    <option value="" disabled selected>Pilih Trainer</option>
+                    <!-- Opsi akan diisi melalui JavaScript -->
+                </select>
+            </div>
+            <button type="submit" class="btn-update">Perbarui Informasi</button>
+        </form>
+    </div>
+
+    
+    <!-- Main Content Section -->
+    <div class="container">
+        <div id="content" class="content-animate">
+            <!-- Konten dinamis akan dimuat melalui script.js -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 TrainUp. Semua hak dilindungi.</p>
+    </footer>
+    
+</body>
+</html>
+

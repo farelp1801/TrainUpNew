@@ -1,0 +1,122 @@
+<!-- regadmin.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrasi Admin | TrainUp</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="PIC/favicon.png">
+</head>
+<body>
+
+    <!-- Registrasi Admin Container -->
+    <div class="auth-container">
+        <h2>Registrasi Admin</h2>
+        <form id="regadminForm">
+            <div class="form-group">
+                <label for="adminFullName">Nama Lengkap</label>
+                <input type="text" id="adminFullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="adminUsername">Username</label>
+                <input type="text" id="adminUsername" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="adminGender">Jenis Kelamin</label>
+                <select id="adminGender" name="gender" required>
+                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="adminEmail">Email</label>
+                <input type="email" id="adminEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="adminContact">Kontak</label>
+                <input type="text" id="adminContact" name="contact" required>
+            </div>
+            <div class="form-group">
+                <label for="adminProgramGoals">Program Capaian</label>
+                <input type="text" id="adminProgramGoals" name="programGoals" required>
+            </div>
+            <div class="form-group">
+                <label for="adminMedicalHistory">Riwayat Penyakit</label>
+                <input type="text" id="adminMedicalHistory" name="medicalHistory" placeholder="Tidak ada">
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Password</label>
+                <input type="password" id="adminPassword" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="adminConfirmPassword">Konfirmasi Password</label>
+                <input type="password" id="adminConfirmPassword" name="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn">Daftar Admin</button>
+        </form>
+        <!-- Link to Login -->
+        <a href="login.html" class="login-link">Sudah punya akun? Masuk di sini</a>
+    </div>
+
+    <script>
+        // Handle Admin Registration Form Submission
+        document.getElementById('regadminForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('adminFullName').value.trim();
+            const username = document.getElementById('adminUsername').value.trim();
+            const gender = document.getElementById('adminGender').value;
+            const email = document.getElementById('adminEmail').value.trim();
+            const contact = document.getElementById('adminContact').value.trim();
+            const programGoals = document.getElementById('adminProgramGoals').value.trim();
+            const medicalHistory = document.getElementById('adminMedicalHistory').value.trim();
+            const password = document.getElementById('adminPassword').value.trim();
+            const confirmPassword = document.getElementById('adminConfirmPassword').value.trim();
+
+            if (password !== confirmPassword) {
+                alert('Password dan Konfirmasi Password tidak cocok!');
+                return;
+            }
+
+            // Registrasi admin via AJAX
+            const data = {
+                fullName,
+                username,
+                gender,
+                email,
+                contact,
+                programGoals,
+                medicalHistory,
+                password,
+                confirmPassword,
+                role: 'Admin' // Menentukan role sebagai Admin
+            };
+
+            fetch('regadmin.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert('Registrasi Admin berhasil! Silakan login.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert(`Registrasi gagal: ${result.message}`);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat registrasi. Silakan coba lagi.');
+            });
+
+            return false;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1234 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar .left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar .navbar-links {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar a {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.navbar a.active {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border-color: #4CAF50;
+}
+
+.navbar a:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.navbar .right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.Log-Out, .Login-Register {
+    padding: 8px 20px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.Log-Out:hover, .Login-Register:hover {
+    background-color: #45a049;
+}
+
+.profil-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1003;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.profil-toggle-btn:hover {
+    background-color: #45a049;
+}
+
+.gender-icon {
+    font-size: 1.2em;
+}
+
+/* Sidebar Dashboard Styling */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+    padding: 20px;
+    z-index: 1002;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.container.shifted {
+    transform: translateX(150px);
+}
+
+.sidebar h3 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.sidebar .form-group {
+    margin-bottom: 15px;
+}
+
+.sidebar .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.sidebar .form-group input,
+.sidebar .form-group select,
+.sidebar .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.sidebar .btn-update {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.sidebar .btn-update:hover {
+    background-color: #45a049;
+}
+
+.sidebar .close-sidebar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.sidebar .close-sidebar:hover {
+    color: #000;
+}
+
+/* Profil Toggle Button */
+.profil-toggle-btn {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Gender Icons */
+.gender-icon.male::before {
+    content: "\2642";
+}
+
+.gender-icon.female::before {
+    content: "\2640";
+}
+
+/* Main Container */
+.container {
+    margin-top: 80px;
+    padding: 20px;
+    flex: 1;
+    width: 100%;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+/* Home Section Styling */
+.home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-overlay {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+
+.text-overlay .train {
+    color: #000000;
+}
+
+.text-overlay .up {
+    color: #90ee90;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gym-text {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #555;
+    text-align: center;
+}
+
+.program-section h2,
+.instructor-section h2,
+.benefits-section h2 {
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.program-section ul,
+.benefits-section ul {
+    list-style-type: disc;
+    margin: 10px 0;
+    padding-left: 40px;
+}
+
+.program-section li,
+.benefits-section li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.instructor-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instructor-section img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.instructor-section p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.centered-header {
+    text-align: center;
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #45a049;
+}
+
+/* Trainer Section Styling */
+.trainer-section, .trainer-chosen-section {
+    max-width: 1000px;
+    margin: 2em auto;
+    padding: 1em;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.trainer-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.trainer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.trainer-details {
+    display: flex;
+    align-items: center;
+}
+
+.trainer-details img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 1em;
+    object-fit: cover;
+}
+
+.trainer-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.trainer-info p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.hire-btn, .action-btn {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.hire-btn:hover {
+    background-color: #218838;
+}
+
+/* Payment Section Styling */
+.payment-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.payment-container .header h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.payment-container .instruction p,
+.payment-container .amount p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.payment-container .qris-image img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin: 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confirm-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+    background-color: #45a049;
+}
+
+/* Schedule Section Styling */
+.schedule-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    animation: slideUp 1.5s ease-in-out;
+    text-align: center;
+}
+
+.schedule-section h2 {
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.schedule-table th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background-color: #45a049;
+}
+
+/* Untuk tabel di dalam modal tambah jadwal */
+.schedule-template-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.schedule-template-table th,
+.schedule-template-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.schedule-template-table th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Konsultasi Pelanggan Card */
+.customer-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.customer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.customer-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.customer-card strong {
+    color: #4CAF50;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.whatsapp-button:hover {
+    background-color: #1ebe57;
+}
+
+/* No Schedule Sections */
+.scheduleno-section,
+.scheduleno2-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #ffffff !important;
+    padding: 40px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1) !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+.scheduleno-section h2,
+.scheduleno2-section h2 {
+    font-size: 2em !important;
+    color: #4CAF50 !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+}
+
+.scheduleno-section p,
+.scheduleno2-section p {
+    font-size: 1.2em !important;
+    color: #333 !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+}
+
+/* About, Contact & Feedback */
+.about-contact-feedback-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    text-align: justify;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    animation: slideUp 1.5s ease-in-out;
+}
+
+.about-section img.about-image {
+    display: block;
+    margin: 0 auto 40px auto;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-feedback-section h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-info {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-logo {
+    width: 30px;
+    height: 30px;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback-form form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-form label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.feedback-form textarea {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.feedback-form .submit-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    align-self: center;
+    width: 150px;
+}
+
+.feedback-form .submit-btn:hover {
+    background-color: #45a049;
+}
+
+.feedback-success {
+    font-size: 1.2em;
+    color: #4CAF50;
+    text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 5px;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    color: #4CAF50;
+}
+
+.modal-body label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal-body .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.modal-body .submit-btn:hover {
+    background-color: #45a049;
+}
+#editModal .modal-content {
+    background-color: #fff !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
+    max-width: 500px !important;
+}
+
+
+#editModal .modal-header h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+#editModal .modal-body label {
+    font-size: 1em;
+    color: #555;
+    font-weight: bold;
+}
+
+#editModal .modal-body input[type="time"],
+#editModal .modal-body input[type="text"] {
+    font-size: 1em;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#editModal .modal-body input[type="time"]:focus,
+#editModal .modal-body input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+#editModal .modal-body .submit-btn {
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#editModal .modal-body .submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Consultation Section Styling */
+.consultation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.consultation-section h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.consultation-section p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.consultation-section .action-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.consultation-section .action-btn:hover {
+    background-color: #45a049;
+}
+
+/* Content Animation */
+.content-animate {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* Auth Container (Login & Register) */
+.auth-container {
+    max-width: 400px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 100px auto;
+    text-align: center;
+}
+
+.auth-container h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.register-link,
+.login-link {
+    display: block;
+    margin-top: 15px;
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register-link:hover,
+.login-link:hover {
+    color: #45a049;
+}
+
+/* Admin Section Styling */
+.admin-section {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.admin-section h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.admin-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.admin-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.admin-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.admin-card .hapus-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.admin-card .hapus-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Feedback List */
+.feedback-card {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.feedback-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    .navbar .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar a {
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar .right-section {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .navbar .right-section .Log-Out, .navbar .right-section .Login-Register {
+        width: auto;
+    }
+
+    .home-section, .trainer-container, .payment-container, .schedule-section, .about-contact-feedback-section, .program-section, .instructor-section, .benefits-section, .contact-feedback-section {
+        padding: 10px;
+    }
+
+    .home-section .text-overlay {
+        font-size: 2.5em;
+    }
+
+    .gym-text p {
+        font-size: 1em;
+    }
+
+    .program-section h2, .instructor-section h2, .benefits-section h2, .contact-feedback-section h2 {
+        font-size: 2em;
+    }
+
+    .trainer-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hire-btn, .action-btn, .edit-btn, .delete-btn {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .instructor-section img,
+    .benefits-section img,
+    .about-image {
+        max-width: 100%;
+    }
+
+    .sidebar {
+        width: 80%;
+    }
+
+    .profil-toggle-btn {
+        width: 80px;
+        height: 40px;
+        font-size: 0.9em;
+    }
+
+    .consultation-section {
+        padding: 20px;
+    }
+}
+.trainup-image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.trainup-image-section img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0;
+}
+.benefits-section {
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.benefits-section img {
+    width: 100%;
+    max-width: 800px; /* Sesuaikan ukuran gambar */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.benefits-section h2 {
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.benefits-section ul {
+    list-style-type: disc;
+    margin: 10px 0;
+    padding-left: 40px;
+}
+
+.benefits-section li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.6;
+}

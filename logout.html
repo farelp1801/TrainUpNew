@@ -1,0 +1,40 @@
+<!-- logout.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="icon" type="image/x-icon" href="PIC/favicon.png">
+    <meta charset="UTF-8">
+    <title>Logout | TrainUp</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mengirim permintaan logout ke server
+            fetch('logout.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    // Hapus data user dari sessionStorage
+                    sessionStorage.removeItem('user');
+                    // Redirect ke login.html
+                    window.location.href = 'login.html';
+                } else {
+                    alert('Gagal logout: ' + result.message);
+                    window.location.href = 'index.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat logout.');
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Logout...</p>
+</body>
+</html>

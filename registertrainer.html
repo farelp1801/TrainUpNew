@@ -1,0 +1,136 @@
+<!-- registertrainer.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi Trainer | TrainUp</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="PIC/favicon.png">
+</head>
+<body>
+
+    <!-- Registration Trainer Container -->
+    <div class="auth-container">
+        <h2>Registrasi Trainer</h2>
+        <form id="registerTrainerForm">
+            <div class="form-group">
+                <label for="trainerFullName">Nama Lengkap</label>
+                <input type="text" id="trainerFullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="trainerUsername">Username</label>
+                <input type="text" id="trainerUsername" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="trainerGender">Jenis Kelamin</label>
+                <select id="trainerGender" name="gender" required>
+                    <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                    <!-- Opsi "Lainnya" dihapus -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="trainerEmail">Email</label>
+                <input type="email" id="trainerEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="trainerContact">Kontak</label>
+                <input type="text" id="trainerContact" name="contact" required>
+            </div>
+            <div class="form-group">
+                <label for="trainerProgramGoals">Program Capaian</label>
+                <input type="text" id="trainerProgramGoals" name="programGoals" required>
+            </div>
+            <div class="form-group">
+                <label for="trainerMedicalHistory">Riwayat Penyakit</label>
+                <input type="text" id="trainerMedicalHistory" name="medicalHistory" placeholder="Tidak ada">
+            </div>
+            <div class="form-group">
+                <label for="trainerSpecialization">Spesialisasi</label>
+                <input type="text" id="trainerSpecialization" name="specialization" required>
+            </div>
+            <div class="form-group">
+                <label for="trainerExperience">Pengalaman (dalam tahun)</label>
+                <input type="number" id="trainerExperience" name="experience" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="trainerPassword">Password</label>
+                <input type="password" id="trainerPassword" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="trainerConfirmPassword">Konfirmasi Password</label>
+                <input type="password" id="trainerConfirmPassword" name="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn">Daftar</button>
+        </form>
+        <!-- Link to Login -->
+        <a href="login.html" class="login-link">Sudah punya akun? Masuk di sini</a>
+    </div>
+
+    <script>
+        // Handle Registration Trainer Form Submission
+        document.getElementById('registerTrainerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('trainerFullName').value.trim();
+            const username = document.getElementById('trainerUsername').value.trim();
+            const gender = document.getElementById('trainerGender').value;
+            const email = document.getElementById('trainerEmail').value.trim();
+            const contact = document.getElementById('trainerContact').value.trim();
+            const programGoals = document.getElementById('trainerProgramGoals').value.trim();
+            const medicalHistory = document.getElementById('trainerMedicalHistory').value.trim();
+            const specialization = document.getElementById('trainerSpecialization').value.trim();
+            const experience = parseInt(document.getElementById('trainerExperience').value.trim());
+            const password = document.getElementById('trainerPassword').value.trim();
+            const confirmPassword = document.getElementById('trainerConfirmPassword').value.trim();
+
+            if (password !== confirmPassword) {
+                alert('Password dan Konfirmasi Password tidak cocok!');
+                return;
+            }
+
+            // Simulasi pendaftaran via AJAX
+            const data = {
+                fullName,
+                username,
+                gender,
+                email,
+                contact,
+                programGoals,
+                medicalHistory,
+                specialization,
+                experience,
+                password,
+                confirmPassword,
+                role: 'Trainer' // Menentukan role sebagai Trainer
+            };
+
+            fetch('register.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert('Registrasi Trainer berhasil! Silakan login.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert(`Registrasi gagal: ${result.message}`);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat registrasi. Silakan coba lagi.');
+            });
+
+            return false;
+        });
+    </script>
+
+</body>
+</html>
